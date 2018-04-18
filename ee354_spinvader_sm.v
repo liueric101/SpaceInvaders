@@ -16,30 +16,34 @@ module ee354_spinvaders_sm(Clk, reset, L, R, shoot, topY, midY, botY,
 	 reg[9:0] projectileX, projectileY;
     initial
 	 begin
-		alien1X = 10'd30; 		
-		alien2X = 10'd130;
-		alien3X = 10'd230;
-		alien4X = 10'd330;
-		alien5X = 10'd430;
 		
-		alien6X = 10'd130;
-		alien7X = 10'd230;
-		alien8X = 10'd330;
-		alien9X = 10'd430;
-		alien10X = 10'd530;
-		
-		alien11X = 10'd30;
-		alien12X = 10'd130;
-		alien13X = 10'd230;
-		alien14X = 10'd330;
-		alien15X = 10'd430;
-
-		topY <= 10'd30;
-		midY <= 10'd90;
-		botY <= 10'd150;
 	end
 	 always @(posedge Clk)
 	 begin
+		if(reset)
+		begin
+			alien1X = 10'd30; 		
+			alien2X = 10'd130;
+			alien3X = 10'd230;
+			alien4X = 10'd330;
+			alien5X = 10'd430;
+		
+			alien6X = 10'd130;
+			alien7X = 10'd230;
+			alien8X = 10'd330;
+			alien9X = 10'd430;
+			alien10X = 10'd530;
+		
+			alien11X = 10'd30;
+			alien12X = 10'd130;
+			alien13X = 10'd230;
+			alien14X = 10'd330;
+			alien15X = 10'd430;
+
+			topY <= 10'd30;
+			midY <= 10'd90;
+			botY <= 10'd150;
+		end
 	 end
     always @(posedge Clk) //Movement of the ship
 		begin
