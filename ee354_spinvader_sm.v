@@ -1,16 +1,15 @@
 
 `timescale 1ns / 1ps
 
-module ee354_spinvaders_sm(Clk, reset, L, R, shoot, topRow, midRow, botRow, topY, midY, botY, xInvader );
-
+module ee354_spinvaders_sm(Clk, reset, L, R, shoot, topY, midY, botY, 
+	alien1X, alien2X,alien3X,alien4X,alien5X,alien6X,alien7X,alien8X,alien9X,alien10X,alien11X,alien12X,alien13X,alien14X,alien15X);
     input Clk, reset;
 	 input L, R;
-	 output[6:0] topRow, midRow, botRow;
+	 input shoot;
 	 output[9:0] topY, midY, botY;
-	 output[9:0] xInvader;
-	 reg[9:0] alien1X, alien2X,alien3X,alien4X,alien5X;
-	 reg[9:0] alien6X, alien7X,alien8X,alien9X,alien10X;
-	 reg[9:0] alien11X, alien12X,alien13X,alien14X,alien15X;
+	 output reg[9:0] alien1X, alien2X,alien3X,alien4X,alien5X;
+	 output reg[9:0] alien6X, alien7X,alien8X,alien9X,alien10X;
+	 output reg[9:0] alien11X, alien12X,alien13X,alien14X,alien15X;
 	 reg[9:0] topY, midY, botY;
 	 reg[5:0] score;
 	 
@@ -39,7 +38,9 @@ module ee354_spinvaders_sm(Clk, reset, L, R, shoot, topRow, midRow, botRow, topY
 		midY <= 10'd90;
 		botY <= 10'd150;
 	end
-	 
+	 always @(posedge Clk)
+	 begin
+	 end
     always @(posedge Clk) //Movement of the ship
 		begin
 			if(reset)
@@ -70,7 +71,13 @@ module ee354_spinvaders_sm(Clk, reset, L, R, shoot, topRow, midRow, botRow, topY
 			if(projectileX <= alien1X+10 && projectileX >=alien1X-10)
 			begin
 				projectileX <= 10'd900;
+				alien1X <=
 				score <= score + 10;
+			end
+			else if(projectileX <= alien2X+10 && projectileX >=Alien2X-10)
+			begin
+				projectileX <= 10'd900;
+				
 			end
 		 end
 		 else //move projectile up the screen if projectile hasn't hit any aliens or top of screen.
